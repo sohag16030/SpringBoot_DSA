@@ -1,6 +1,8 @@
 package Java.Java_8;
 
 @FunctionalInterface
+
+// one abstract method is called functional interface.. prerequisite........
 interface MyFunction {
    // int testMethod(int i);
     void test(String str1,String str2);

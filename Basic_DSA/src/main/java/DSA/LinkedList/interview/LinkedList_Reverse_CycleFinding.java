@@ -41,7 +41,7 @@ class Operations {
         head = prevNode;
         return head;
     }
-
+    // 10 20 30 40 50 60
     public Node ReverseLinkedListUsingRecursion(Node head) {
         if (head == null || head.next == null) return head;
         Node newHead = ReverseLinkedListUsingRecursion(head.next);
@@ -55,7 +55,7 @@ class Operations {
     public Node FindCycleInLinkedList(Node head) {
         Node fast = head;
         Node slow = head;
-        while (fast != null && fast.next != null) {
+        while (fast!=null && fast.next != null) {
             fast = fast.next.next;
             slow = slow.next;
             if (fast == slow)
@@ -92,15 +92,14 @@ class Operations {
 public class LinkedList_Reverse_CycleFinding {
     public static void main(String[] args) {
         Operations operations = new Operations();
-//        operations.addElementLast(10);
-//        operations.addElementLast(20);
-//        operations.addElementLast(30);
-//        operations.addElementLast(40);
-//        operations.addElementLast(50);
-//        operations.addElementLast(40);
+        operations.addElementLast(10);
+        operations.addElementLast(20);
+        operations.addElementLast(30);
+        operations.addElementLast(40);
+        operations.addElementLast(50);
         //Node head = operations.ReverseLinkedListUsingIterativeMethod();
-        //Node newHead = operations.ReverseLinkedListUsingRecursion(head);
-
+        Node newHead = operations.ReverseLinkedListUsingRecursion( operations.addElementLast(60));
+        System.out.println(newHead);
         Node node1 = new Node(1);
         Node node2 = new Node(2);
         Node node3 = new Node(3);
@@ -117,8 +116,8 @@ public class LinkedList_Reverse_CycleFinding {
         Node head = node1;
         Node slow = operations.FindCycleInLinkedList(head);
         System.out.println(slow);
-
-        Node point = operations.detectFirstNode(head);
-        operations.removeCycleFromALinkedList(head);
+//
+//        Node point = operations.detectFirstNode(head);
+//        operations.removeCycleFromALinkedList(head);
     }
 }

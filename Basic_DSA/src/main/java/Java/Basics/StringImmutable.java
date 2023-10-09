@@ -5,6 +5,7 @@ public class StringImmutable {
         String str = new String("Hello");
         str.concat("world");
         System.out.println(str);
-       // System.out.println(str2);
+        //String test = str.concat("world");
+        // System.out.println(str2);
     }
 }

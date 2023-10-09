@@ -22,6 +22,7 @@ class MyComparator implements Comparator<Student1> {
         if (stu1.getId().equals(stu2.getId()))
             return Integer.compare(stu1.getAge(), stu2.getAge());
         else return Integer.compare(stu1.getId(), stu2.getId());
+
     }
 }
 
