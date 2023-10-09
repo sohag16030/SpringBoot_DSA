@@ -1,5 +1,7 @@
 package Java.DesignPattern;
 
+ ///providing a clear separation of concerns and flexibility for object creation.
+
 // Shape interface
 interface Shape {
     void draw();
@@ -53,4 +55,3 @@ public class FactoryPatternExample {
         rectangle.draw();
     }
 }
-

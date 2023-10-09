@@ -1,5 +1,10 @@
 package Java.DesignPattern;
 
+// This example illustrates the Abstract Factory Pattern,
+// where we can create families of related objects (vehicles and engines)
+// without specifying their concrete classes and ensure that the components are compatible with each other.
+
+
 // Abstract Product Interfaces
 interface Vehicle {
     void manufacture();
