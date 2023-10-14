@@ -1,31 +1,24 @@
 package Java.Java_8;
 
 @FunctionalInterface
-interface MyFunction {
-   // int testMethod(int i);
-    void test(String str1,String str2);
+
+interface Square {
+    int calculate(int x);
 }
 
+// functional interface representation using lambda expression
+// Runnable,callable are also functional interface..
 public class LambdaExpressionDemo {
-    public static void main(String[] args) {
-//        Runnable runnable = new Runnable() {
-//            @Override
-//            public void run() {
-//                System.out.println("Runnable Interface");
-//            }
-//        };
-//         Runnable runnable =()->{
-//             System.out.println("Runnable Interface with lambda Expression");
-//         };
-//        Thread th = new Thread(runnable);
-//        th.start();
+    public static void main(String args[])
+    {
+        int a = 5;
 
-//        MyFunction myFunction = (i) -> i * 10;
-//        System.out.println(myFunction.test(15));
+        // lambda expression to define the calculate method
+        Square s = (int x) -> x * x;
 
-       MyFunction myFunction = (str1,str2)->{
-            System.out.println(str1 + " "+str2);
-        };
-       myFunction.test("Hello" ,"world");
+        // parameter passed and return type must be
+        // same as defined in the prototype
+        int ans = s.calculate(a);
+        System.out.println(ans);
     }
 }

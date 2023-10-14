@@ -7,20 +7,6 @@ import java.util.stream.Stream;
 
 public class ArrayNumbersOccurrenceUsingBinarySearch {
     public static void main(String[] args) {
-//        List<Integer> arr = Stream.of(2, 4, 10, 10, 10, 18, 20).collect(Collectors.toList());
-//        // Complexity :: O(n)
-//        Map<Integer, Long> frequencyCount = arr.stream().collect(Collectors.groupingBy(c -> c, Collectors.counting()));
-//
-//        for (Map.Entry<Integer, Long> entry : frequencyCount.entrySet()) {
-//            // System.out.println(entry.getKey() + " " + entry.getValue());
-//        }
-//
-//        String str = "HelloWorld";
-//        List<Integer> arr2 = str.chars().mapToObj(c->c).collect(Collectors.toList());
-//        System.out.println(arr2);
-//        Map<Integer,Long> counting = str.chars().mapToObj(c->c).collect(Collectors.groupingBy(c->c,Collectors.counting()));
-//
-        // Complexity :: O(log n)
         int[] myarr = {2, 4, 10, 10, 10, 18, 20};
         int firstOccurrence = FindFirstOccurrence(0, 7, myarr, 10);
         int LastOccurrence = FindLastOccurrence(0, 7, myarr, 10);

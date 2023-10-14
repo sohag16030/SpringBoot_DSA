@@ -55,7 +55,7 @@ class Operations {
     public Node FindCycleInLinkedList(Node head) {
         Node fast = head;
         Node slow = head;
-        while (fast != null && fast.next != null) {
+        while (fast.next != null) {
             fast = fast.next.next;
             slow = slow.next;
             if (fast == slow)
@@ -112,7 +112,7 @@ public class LinkedList_Reverse_CycleFinding {
         node2.next = node3;
         node3.next = node4;
         node4.next = node5;
-        node5.next = node2; // Creating a cycle
+       // node5.next = node2; // Creating a cycle
 
         Node head = node1;
         Node slow = operations.FindCycleInLinkedList(head);
