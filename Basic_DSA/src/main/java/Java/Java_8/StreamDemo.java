@@ -34,7 +34,7 @@ public class StreamDemo {
         // Arrays frequency count from a arr
         List<Integer> list = Arrays.asList(10, 10, 20, 10, 20, 11, 1, 1, 2);
 
-        Map<Integer, Long> countMap = list.stream().collect(Collectors.groupingBy(i -> i, Collectors.counting()));
+        Map<Integer, Long> countMap = list.stream().collect(Collectors.groupingBy(i->i,Collectors.counting()));
 
         String str = new String("khkhfqqo");
 

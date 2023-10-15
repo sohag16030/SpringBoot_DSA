@@ -9,8 +9,8 @@ public class RootFindingUsingBinarySearch {
         int mid = l + (u - l) / 2;
         if (mid * mid == v) return mid;
         else if (mid * mid > v) {
-          return rootFindingBinarysearch(l, mid - 1, v);
-        } else if  (mid * mid < v) return rootFindingBinarysearch(mid + 1, u, v);
+          return rootFindingBinarysearch(l, mid - 1, v); // boro k komabo..
+        } else if  (mid * mid < v) return rootFindingBinarysearch(mid + 1, u, v); // choto k barabo..
         return 0;
     }
 }

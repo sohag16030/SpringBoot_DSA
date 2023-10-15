@@ -1,9 +1,9 @@
 package Java.Java_8;
 
 @FunctionalInterface
-
 interface Square {
     int calculate(int x);
+
 }
 
 // functional interface representation using lambda expression

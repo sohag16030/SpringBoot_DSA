@@ -33,6 +33,5 @@ public class Comparable_Interface {
 
         Collections.sort(stuList);
         System.out.println(stuList);
-
     }
 }
