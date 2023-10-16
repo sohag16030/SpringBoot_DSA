@@ -23,17 +23,17 @@ public class ThreeSum {
         for (int i = 0; i < nums.length - 1; i++) {
             int l = i + 1, h = nums.length - 1;
             while (l < h) {
-                if (nums[i] + nums[l] + nums[h] == 0) {
+                int sum = nums[i] + nums[l] + nums[h];
+                if (sum == 0) {
                     result.add(nums[i] + "" + nums[l] + "" + nums[h]);
                     l = l + 1;
                     h = h - 1;
 
-                } else if (nums[l] + nums[h] > -1 * nums[i])
+                } else if (sum > 0 )
                     h = h - 1;
                 else
                     l = l + 1;
             }
-
         }
     }
 }
