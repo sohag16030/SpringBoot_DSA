@@ -1,4 +1,4 @@
-package WellInterview.ArrayAndHashing;
+package WellInterview.TwoPointers;
 
 import java.util.Arrays;
 
