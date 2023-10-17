@@ -1,4 +1,4 @@
-package WellInterview.SlidingWindow;
+package TopicWisePreparation.SlidingWindow;
 
 public class BestTimeToBuyAndSellStock {
     public static void main(String[] args) {

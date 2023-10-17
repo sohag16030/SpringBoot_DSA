@@ -1,4 +1,4 @@
-package WellInterview.ArrayAndHashing;
+package TopicWisePreparation.ArrayAndHashing;
 
 import java.util.HashMap;
 import java.util.Map;

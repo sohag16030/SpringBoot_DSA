@@ -1,4 +1,4 @@
-package WellInterview.SlidingWindow;
+package TopicWisePreparation.SlidingWindow;
 
 import java.util.*;
 

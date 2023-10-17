@@ -1,4 +1,4 @@
-package WellInterview.Stack;
+package TopicWisePreparation.Stack;
 
 import java.util.HashMap;
 import java.util.Map;

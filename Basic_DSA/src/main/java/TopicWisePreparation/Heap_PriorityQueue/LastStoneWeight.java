@@ -1,4 +1,4 @@
-package WellInterview.Heap_PriorityQueue;
+package TopicWisePreparation.Heap_PriorityQueue;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;

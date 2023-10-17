@@ -1,4 +1,4 @@
-package WellInterview.TwoPointers;
+package TopicWisePreparation.TwoPointers;
 
 import java.util.Arrays;
 import java.util.HashSet;
