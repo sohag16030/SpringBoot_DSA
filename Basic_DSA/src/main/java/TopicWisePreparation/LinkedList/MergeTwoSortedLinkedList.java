@@ -45,7 +45,6 @@ public class MergeTwoSortedLinkedList {
                             curr = curr.next;
                         }
                         curr.next = new Node(head1.data);
-
                     }
                     head1 = head1.next;
                 } else {
@@ -57,7 +56,6 @@ public class MergeTwoSortedLinkedList {
                             curr = curr.next;
                         }
                         curr.next = new Node(head2.data);
-
                     }
                     head2 = head2.next;
                 }
