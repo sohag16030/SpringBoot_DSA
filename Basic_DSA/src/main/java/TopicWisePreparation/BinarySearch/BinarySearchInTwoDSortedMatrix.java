@@ -5,7 +5,9 @@ import java.util.LinkedList;
 
 public class BinarySearchInTwoDSortedMatrix {
     public static void main(String[] args) {
-        int[][] matrix = {{1, 3, 5, 7, 8}, {10, 11, 16, 20, 21}, {23, 30, 34, 60, 61}};
+        int[][] matrix = {{1, 3, 5, 7, 8},
+                         {10, 11, 16, 20, 21},
+                         {23, 30, 34, 60, 61}};
         int target = 3;
         int n = 5;
         int m = 4;
