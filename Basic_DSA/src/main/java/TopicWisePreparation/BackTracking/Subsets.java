@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Subsets {
     public static void main(String[] args) {
-        int[] nums = {0};
+        int[] nums = {1,2,0};
         List<List<Integer>> resultSetList = new ArrayList<>();
         Set<ArrayList<Integer>> seen = new HashSet<>();
         subsetBacktrack(nums, new ArrayList<Integer>(), resultSetList, 0, seen);
@@ -23,8 +23,13 @@ public class Subsets {
     }
 
     private static boolean unique(ArrayList<Integer> curr, Set<ArrayList<Integer>> seen) {
-        Collections.sort(curr);
-        if (!seen.contains(curr)) return true;
+        ArrayList<Integer> sortedCopy = new ArrayList<>(curr);
+        Collections.sort(sortedCopy);
+
+        if (!seen.contains(sortedCopy)) {
+            seen.add(sortedCopy);
+            return true;
+        }
         return false;
     }
 }
