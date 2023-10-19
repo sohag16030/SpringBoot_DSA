@@ -3,7 +3,7 @@ package TopicWisePreparation.Graph_BFS_DFS;
 public class DFS_NumberOfIsLandAndMaxArea {
     static String[][] grid = {{"1", "1", "1", "1", "0"},
             {"1", "1", "0", "0", "1"},
-            {"1", "1", "0", "1", "1"},
+            {"1", "1", "0", "0", "0"},
             {"0", "0", "0", "1", "1"}};
     static int n = grid.length;
     static int m = grid[0].length;
