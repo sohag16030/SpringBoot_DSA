@@ -1,4 +1,4 @@
-package TopicWisePreparation.BackTracking;
+package TopicWisePreparation.ArrayAndHashing;
 
 import java.util.Arrays;
 
