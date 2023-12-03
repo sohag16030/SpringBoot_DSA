@@ -15,8 +15,11 @@
         <!-- Echo all executed statements to stdout -->
         <property name="hibernate.show_sql">true</property>
         <!-- Drop and re-create the database schema on startup -->
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
         <mapping class="com.example.hibernate02.entity.Student"/>
+        <mapping class="com.example.hibernate02.entity.Address"/>
+        <mapping class="com.example.hibernate02.com.map.entity.Question"/>
+        <mapping class="com.example.hibernate02.com.map.entity.Answer"/>
     </session-factory>
 
 </hibernate-configuration>
