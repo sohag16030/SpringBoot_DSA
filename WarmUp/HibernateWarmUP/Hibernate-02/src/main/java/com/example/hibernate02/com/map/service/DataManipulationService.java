@@ -13,15 +13,22 @@ public class DataManipulationService {
 
         SessionFactory factory =cfg.buildSessionFactory();
         Session session = factory.openSession();
-        Answer answer = new Answer("Java is a programming Language");
-        Answer answer2 = new Answer("Hibernate is a object relational mapping tool");
+        Transaction transaction = session.beginTransaction();
+
+        Answer answer = new Answer(101,"Java is a programming Language");
+        Answer answer2 = new Answer(102,"Hibernate is a object relational mapping tool");
+
+        session.save(answer);
+        session.save(answer2);
 
         Question question = new Question("What is java",answer);
         Question question2 = new Question("What is Hibernate",answer2);
-        Transaction transaction = session.beginTransaction();
+
+
 
         session.save(question);
         session.save(question2);
+
 
         transaction.commit();
         session.close();
