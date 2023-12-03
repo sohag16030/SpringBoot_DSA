@@ -101,13 +101,13 @@ public class LinkedList_Reverse_CycleFinding {
         node2.next = node3;
         node3.next = node4;
         node4.next = node5;
-       // node5.next = node2; // Creating a cycle
+        node5.next = node2; // Creating a cycle
 
         Node head = node1;
         Node slow = operations.FindCycleInLinkedList(head);
         System.out.println(slow);
 //
-//        Node point = operations.detectFirstNode(head);
-//        operations.removeCycleFromALinkedList(head);
+        Node point = operations.detectFirstNode(head);
+        operations.removeCycleFromALinkedList(head);
     }
 }

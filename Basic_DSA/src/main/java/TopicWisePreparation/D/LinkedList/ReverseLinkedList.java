@@ -60,14 +60,14 @@ class Operation {
 public class ReverseLinkedList {
     public static void main(String[] args) {
         // Add element at first position in a singly linked list
-        Operation operation = new Operation();
-        operation.addElementFirst(10);
-        operation.addElementFirst(40);
-        operation.addElementFirst(30);
-        operation.addElementFirst(20);
-        operation.addElementFirst(40);
-        Node head = operation.addElementFirst(50);
-        Node reverseHead = operation.reverseLinkedList(head);
+//        Operation operation = new Operation();
+//        operation.addElementFirst(10);
+//        operation.addElementFirst(40);
+//        operation.addElementFirst(30);
+//        operation.addElementFirst(20);
+//        operation.addElementFirst(40);
+//        Node head = operation.addElementFirst(50);
+//        Node reverseHead = operation.reverseLinkedList(head);
 
         Node node1 = new Node(1);
         Node node2 = new Node(2);
@@ -82,6 +82,6 @@ public class ReverseLinkedList {
         node4.next = node5;
         node5.next = node2;
         //cycle find
-        Node cycleStarting = operation.hasCycle(node1);
+       // Node cycleStarting = operation.hasCycle(node1);
     }
 }

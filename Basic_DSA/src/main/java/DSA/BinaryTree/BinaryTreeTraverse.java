@@ -5,8 +5,6 @@ import lombok.*;
 import java.util.Scanner;
 
 @Data
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -32,5 +30,6 @@ public class BinaryTreeTraverse {
     }
     public static void main(String[] args){
         Node root = create();
+
     }
 }
