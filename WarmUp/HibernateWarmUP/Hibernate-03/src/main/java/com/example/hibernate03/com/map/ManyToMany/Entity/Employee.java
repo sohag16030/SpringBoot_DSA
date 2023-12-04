@@ -18,6 +18,11 @@ public class Employee {
     private String ename;
 
     @ManyToMany
+    @JoinTable(
+            name = "tbl_employee_project",
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "project_id")
+    )
     private List<Project> projectList;
 
     public Employee(int eid, String ename) {
