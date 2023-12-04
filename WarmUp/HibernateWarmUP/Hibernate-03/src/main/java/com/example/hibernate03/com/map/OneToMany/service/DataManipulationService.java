@@ -15,24 +15,24 @@ public class DataManipulationService {
         Configuration cfg = new Configuration();
         cfg.configure("hibernate.cfg.xml");
 
-        SessionFactory factory =cfg.buildSessionFactory();
+        SessionFactory factory = cfg.buildSessionFactory();
         Session session = factory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        Question question = new Question("What is java");
+        Question question = new Question("What is Java");
         Question question1 = new Question("What is Hibernate");
 
-        Answer answer = new Answer(101,"Java is a programming Language",question);
-        Answer answer2 = new Answer(102,"Java is a enrich object oriented programming language",question);
-        Answer answer3 = new Answer(103,"Java is a a high level programming language",question);
+        Answer answer1 = new Answer(101, "Java is a programming Language", question);
+        Answer answer2 = new Answer(102, "Java is an enrich object-oriented programming language", question);
+        Answer answer3 = new Answer(103, "Java is a high-level programming language", question);
 
         List<Answer> answerList = new ArrayList<>();
-        answerList.add(answer);
+        answerList.add(answer1);
         answerList.add(answer2);
         answerList.add(answer3);
 
-        Answer ans1 = new Answer(104,"Hibernate is a object relational mapping tool",question1);
-        Answer ans2 = new Answer(105,"Hibernate is called as ORM",question1);
+        Answer ans1 = new Answer(104, "Hibernate is an object-relational mapping tool", question1);
+        Answer ans2 = new Answer(105, "Hibernate is called as ORM", question1);
 
         List<Answer> answerList1 = new ArrayList<>();
         answerList1.add(ans1);
@@ -41,8 +41,13 @@ public class DataManipulationService {
         session.save(question);
         session.save(question1);
 
-//        session.save(answerList);
-//        session.save(answerList1);
+        for (Answer answer : answerList) {
+            session.save(answer);
+        }
+
+        for (Answer answer : answerList1) {
+            session.save(answer);
+        }
 
         transaction.commit();
         session.close();
