@@ -18,7 +18,8 @@ public class Question {
     @Column(name="question_id")
     private int id;
     private String question;
-    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
+
+    @OneToMany(mappedBy = "question")
     private List<Answer> answer;
 
     public Question(String question) {

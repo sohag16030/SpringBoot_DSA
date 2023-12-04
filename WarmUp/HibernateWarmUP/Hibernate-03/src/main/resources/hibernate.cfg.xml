@@ -22,7 +22,8 @@
 <!--        <mapping class="com.example.hibernate03.com.map.OneToOne.entities.Answer"/>-->
         <mapping class="com.example.hibernate03.com.map.OneToMany.entities.Question"/>
         <mapping class="com.example.hibernate03.com.map.OneToMany.entities.Answer"/>
-
+        <mapping class="com.example.hibernate03.com.map.ManyToMany.Entity.Employee"/>
+        <mapping class="com.example.hibernate03.com.map.ManyToMany.Entity.Project"/>
     </session-factory>
 
 </hibernate-configuration>
