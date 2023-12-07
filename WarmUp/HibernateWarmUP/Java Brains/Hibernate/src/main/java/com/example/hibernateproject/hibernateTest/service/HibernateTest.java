@@ -5,9 +5,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.Date;
+
 public class HibernateTest {
     public static void main(String[] args) {
-        UserDetails userDetails = new UserDetails(101,"Mike");
+        UserDetails userDetails = new UserDetails(101,"Mike",new Date(),"Australia","student visa");
+        UserDetails userDetails2 = new UserDetails(102,"John",new Date(),"Finland","worker visa");
 
         //data save using hibernate API
         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
@@ -15,11 +18,10 @@ public class HibernateTest {
         session.beginTransaction();
 
         session.save(userDetails);
+        session.save(userDetails2);
 
         session.getTransaction().commit();
         session.close();
         factory.close();
-
-
     }
 }
