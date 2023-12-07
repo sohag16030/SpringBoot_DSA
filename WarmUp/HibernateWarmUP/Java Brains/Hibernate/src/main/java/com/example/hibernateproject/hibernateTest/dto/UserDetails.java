@@ -1,4 +1,4 @@
-package com.example.hibernateproject.dto;
+package com.example.hibernateproject.hibernateTest.dto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
