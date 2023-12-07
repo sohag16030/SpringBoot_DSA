@@ -22,6 +22,11 @@ public class HibernateTest {
 
         session.getTransaction().commit();
         session.close();
-        factory.close();
+
+        userDetails = null;
+        Session session2 = factory.openSession();
+        session2.beginTransaction();
+        userDetails =  session2.get(UserDetails.class,101);
+        System.out.println(userDetails);
     }
 }

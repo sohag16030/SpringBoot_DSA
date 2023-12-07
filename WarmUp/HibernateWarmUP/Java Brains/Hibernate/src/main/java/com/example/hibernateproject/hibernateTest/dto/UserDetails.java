@@ -25,6 +25,4 @@ public class UserDetails {
     private String description;
 //    @Transient
 //    private int calculation;
-
-
 }
