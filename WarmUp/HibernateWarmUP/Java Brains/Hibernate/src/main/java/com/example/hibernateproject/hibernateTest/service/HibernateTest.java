@@ -1,5 +1,6 @@
 package com.example.hibernateproject.hibernateTest.service;
 
+import com.example.hibernateproject.hibernateTest.dto.Address;
 import com.example.hibernateproject.hibernateTest.dto.UserDetails;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,8 +10,11 @@ import java.util.Date;
 
 public class HibernateTest {
     public static void main(String[] args) {
-        UserDetails userDetails = new UserDetails(101,"Mike",new Date(),"Australia","student visa");
-        UserDetails userDetails2 = new UserDetails(102,"John",new Date(),"Finland","worker visa");
+
+        Address address = new Address( "123 Main Street","Cityville","Stateville","12345");
+        UserDetails userDetails = new UserDetails("Mike",new Date(),"Australia",address);
+        UserDetails userDetails2 = new UserDetails("John",new Date(),"Finland",address);
+        UserDetails userDetails3 = new UserDetails("Fedrik",new Date(),"Netherland",address);
 
         //data save using hibernate API
         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
@@ -19,6 +23,7 @@ public class HibernateTest {
 
         session.save(userDetails);
         session.save(userDetails2);
+        session.save(userDetails3);
 
         session.getTransaction().commit();
         session.close();
@@ -26,7 +31,7 @@ public class HibernateTest {
         userDetails = null;
         Session session2 = factory.openSession();
         session2.beginTransaction();
-        userDetails =  session2.get(UserDetails.class,101);
+        userDetails =  session2.get(UserDetails.class,1);
         System.out.println(userDetails);
     }
 }

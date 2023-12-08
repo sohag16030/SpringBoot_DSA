@@ -15,14 +15,23 @@ import java.util.Date;
 @Table(name ="USER_DETAILS")
 public class UserDetails {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int userId;
    // @Basic(optional = false, fetch = FetchType.LAZY)
     private String userName;
     @Temporal(TemporalType.DATE)
     private Date joinData;
-    private String address;
     @Lob
     private String description;
 //    @Transient
 //    private int calculation;
+    //@Embedded //Not mandatory
+    private Address address;
+
+    public UserDetails(String userName, Date joinData, String description, Address address) {
+        this.userName = userName;
+        this.joinData = joinData;
+        this.description = description;
+        this.address = address;
+    }
 }
