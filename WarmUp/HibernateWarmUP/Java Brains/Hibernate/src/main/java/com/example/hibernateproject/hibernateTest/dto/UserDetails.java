@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.nio.file.LinkOption;
-import java.util.Date;
+import java.util.*;
 
 @Data
 @AllArgsConstructor
@@ -14,42 +14,19 @@ import java.util.Date;
 @Entity
 @Table(name = "USER_DETAILS")
 public class UserDetails {
-//  @Id
-//  @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int userId;
-//    @EmbeddedId
-//    private UeserInfo userId;
-    // @Basic(optional = false, fetch = FetchType.LAZY)
     private String userName;
-    @Temporal(TemporalType.DATE)
-    private Date joinData;
-    @Lob
-    private String description;
-    //    @Transient
-    //    private int calculation;
-    @Embedded
-    @AttributeOverrides({
-            @AttributeOverride(name = "street", column = @Column(name = "HOME_STREET_NAME")),
-            @AttributeOverride(name = "city", column = @Column(name = "HOME_CITY_NAME")),
-            @AttributeOverride(name = "state", column = @Column(name = "HOME_STATE_NAME")),
-            @AttributeOverride(name = "pinCode", column = @Column(name = "HOME_PIN_CODE"))
-    })
-    private Address homeAddress;
+    @ElementCollection
+    private Set<Address> listOfAddres = new HashSet();
 
-    @Embedded
-    @AttributeOverrides({
-            @AttributeOverride(name = "street", column = @Column(name = "OFFICE_STREET_NAME")),
-            @AttributeOverride(name = "city", column = @Column(name = "OFFICE_CITY_NAME")),
-            @AttributeOverride(name = "state", column = @Column(name = "OFFICE_STATE_NAME")),
-            @AttributeOverride(name = "pinCode", column = @Column(name = "OFFICE_PIN_CODE"))
-    })
-    private Address officeAddress;
-
-    public UserDetails(String userName, Date joinData, String description, Address homeAddress, Address officeAddress) {
+    public UserDetails(String userName, Set<Address> listOfAddres) {
         this.userName = userName;
-        this.joinData = joinData;
-        this.description = description;
-        this.homeAddress = homeAddress;
-        this.officeAddress = officeAddress;
+        this.listOfAddres = listOfAddres;
+    }
+
+    public UserDetails(String userName) {
+        this.userName = userName;
     }
 }
