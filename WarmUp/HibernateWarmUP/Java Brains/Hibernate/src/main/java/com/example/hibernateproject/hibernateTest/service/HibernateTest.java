@@ -11,10 +11,11 @@ import java.util.Date;
 public class HibernateTest {
     public static void main(String[] args) {
 
-        Address address = new Address( "123 Main Street","Cityville","Stateville","12345");
-        UserDetails userDetails = new UserDetails("Mike",new Date(),"Australia",address);
-        UserDetails userDetails2 = new UserDetails("John",new Date(),"Finland",address);
-        UserDetails userDetails3 = new UserDetails("Fedrik",new Date(),"Netherland",address);
+        Address homeAddress = new Address( "Main Street","Cityville","Stateville-02","12345");
+        Address officeAddress = new Address( "Street Florida","CityTowm","SilliconVali","598787");
+        UserDetails userDetails = new UserDetails("Mike",new Date(),"Australia",homeAddress,officeAddress);
+        UserDetails userDetails2 = new UserDetails("John",new Date(),"Finland",homeAddress,officeAddress);
+        UserDetails userDetails3 = new UserDetails("Fedrik",new Date(),"Netherland",homeAddress,officeAddress);
 
         //data save using hibernate API
         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
