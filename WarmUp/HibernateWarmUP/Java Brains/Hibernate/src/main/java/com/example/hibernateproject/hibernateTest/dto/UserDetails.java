@@ -1,12 +1,15 @@
 package com.example.hibernateproject.hibernateTest.dto;
 
 import jakarta.persistence.*;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.*;
 
-import java.nio.file.LinkOption;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+
 
 @Data
 @AllArgsConstructor
@@ -19,12 +22,11 @@ public class UserDetails {
     private int userId;
     private String userName;
     @ElementCollection
-    private Set<Address> listOfAddres = new HashSet();
-
-    public UserDetails(String userName, Set<Address> listOfAddres) {
-        this.userName = userName;
-        this.listOfAddres = listOfAddres;
-    }
+    @JoinTable(name = "USER_ADDRESS",
+    joinColumns = @JoinColumn(name = "USER_ID"))
+    @GenericGenerator(name = "hilo-gen", strategy = "hilo")
+    @CollectionId(column = @Column(name = "ADDRESS_ID"), generator = "hilo-gen")
+    private Collection<Address> listOfAddres = new ArrayList<>();
 
     public UserDetails(String userName) {
         this.userName = userName;
