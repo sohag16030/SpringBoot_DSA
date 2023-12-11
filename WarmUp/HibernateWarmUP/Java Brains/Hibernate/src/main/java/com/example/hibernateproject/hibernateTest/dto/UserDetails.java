@@ -23,7 +23,7 @@ public class UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int userId;
     private String userName;
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.LAZY)
     @JoinTable(name = "USER_ADDRESS",
             joinColumns = @JoinColumn(name = "USER_ID"))
     private Collection<Address> listOfAddress = new ArrayList<>();
