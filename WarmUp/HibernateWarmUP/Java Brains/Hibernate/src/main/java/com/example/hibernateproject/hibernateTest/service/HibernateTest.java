@@ -2,6 +2,7 @@ package com.example.hibernateproject.hibernateTest.service;
 
 import com.example.hibernateproject.hibernateTest.dto.Address;
 import com.example.hibernateproject.hibernateTest.dto.UserDetails;
+import org.hibernate.LazyInitializationException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -24,12 +25,12 @@ public class HibernateTest {
         Address homeAddress = new Address("Main Street", "Cityville", "Stateville-02", "12345");
         Address homeAddress2 = new Address("Main Street1", "Cityville11", "Stateville-0211", "1234511");
 
-        userDetails.getListOfAddres().add(homeAddress);
-        userDetails.getListOfAddres().add(homeAddress2);
+        userDetails.getListOfAddress().add(homeAddress);
+        userDetails.getListOfAddress().add(homeAddress2);
 
-        userDetails2.getListOfAddres().add(homeAddress);
+        userDetails2.getListOfAddress().add(homeAddress);
 
-        userDetails3.getListOfAddres().add(homeAddress2);
+        userDetails3.getListOfAddress().add(homeAddress2);
 
         //data save using hibernate API
         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
@@ -39,14 +40,14 @@ public class HibernateTest {
         session.save(userDetails);
         session.save(userDetails2);
         session.save(userDetails3);
-
         session.getTransaction().commit();
-        session.close();
 
-        userDetails = null;
-        Session session2 = factory.openSession();
-        session2.beginTransaction();
-        userDetails = session2.get(UserDetails.class, 1);
-        System.out.println(userDetails);
+        session.close();
+        UserDetails user = null;
+        session = factory.openSession();
+        user = session.get(UserDetails.class, 1);
+        System.out.println(user);
+        session.close();
+        System.out.println(user.getListOfAddress().size());
     }
 }
