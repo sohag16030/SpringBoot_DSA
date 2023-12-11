@@ -6,10 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.*;
-
+import org.hibernate.annotations.CollectionId;
 import java.util.ArrayList;
 import java.util.Collection;
-
+import org.hibernate.annotations.Type;
 
 @Data
 @AllArgsConstructor
@@ -24,8 +24,8 @@ public class UserDetails {
     @ElementCollection
     @JoinTable(name = "USER_ADDRESS",
     joinColumns = @JoinColumn(name = "USER_ID"))
-    @GenericGenerator(name = "hilo-gen", strategy = "hilo")
-    @CollectionId(column = @Column(name = "ADDRESS_ID"), generator = "hilo-gen")
+//    @GenericGenerator(name = "hilo-gen", strategy="hilo")
+//    @CollectionId(columns = @Column(name = "ADDRESS_ID"),type = @Type(type ="long"))
     private Collection<Address> listOfAddres = new ArrayList<>();
 
     public UserDetails(String userName) {
