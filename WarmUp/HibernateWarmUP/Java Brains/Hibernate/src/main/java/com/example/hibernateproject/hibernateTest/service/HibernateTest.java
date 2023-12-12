@@ -21,7 +21,9 @@ public class HibernateTest {
     public static void main(String[] args) {
         UserDetails user = new UserDetails("Mike");
         Vehicle vehicle = new Vehicle("Car");
-        user.setVehicle(vehicle);
+        Vehicle vehicle2 = new Vehicle("Bike");
+        user.getVehicle().add(vehicle);
+        user.getVehicle().add(vehicle2);
 
         //data save using hibernate API
         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
@@ -31,6 +33,7 @@ public class HibernateTest {
         session.save(user);
 
         session.save(vehicle);
+        session.save(vehicle2);
         session.getTransaction().commit();
 
         //data save using hibernate API

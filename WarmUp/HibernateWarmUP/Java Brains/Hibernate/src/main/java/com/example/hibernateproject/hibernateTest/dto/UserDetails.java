@@ -22,9 +22,8 @@ public class UserDetails {
     private int userId;
     private String userName;
 
-    @OneToOne
-    @JoinColumn(name = "VEHICLE_ID")
-    private Vehicle vehicle;
+    @OneToMany
+    private Collection<Vehicle> vehicle = new ArrayList<>();
 
     public UserDetails(String userName) {
         this.userName = userName;
