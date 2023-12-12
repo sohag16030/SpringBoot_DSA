@@ -21,7 +21,7 @@ public class UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int userId;
     private String userName;
-    @ElementCollection(fetch=FetchType.LAZY)
+    @ElementCollection
     @JoinTable(name = "USER_ADDRESS",
     joinColumns = @JoinColumn(name = "USER_ID"))
 //    @GenericGenerator(name = "hilo-gen", strategy="hilo")
