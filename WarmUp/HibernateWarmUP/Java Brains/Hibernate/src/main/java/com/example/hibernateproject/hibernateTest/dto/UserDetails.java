@@ -21,12 +21,10 @@ public class UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int userId;
     private String userName;
-    @ElementCollection
-    @JoinTable(name = "USER_ADDRESS",
-    joinColumns = @JoinColumn(name = "USER_ID"))
-//    @GenericGenerator(name = "hilo-gen", strategy="hilo")
-//    @CollectionId(columns = @Column(name = "ADDRESS_ID"),type = @Type(type ="long"))
-    private Collection<Address> listOfAddress = new ArrayList<>();
+
+    @OneToOne
+    @JoinColumn(name = "VEHICLE_ID")
+    private Vehicle vehicle;
 
     public UserDetails(String userName) {
         this.userName = userName;
