@@ -1,6 +1,7 @@
 package com.example.hibernateproject.hibernateTest.dto;
 
 import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,10 +23,7 @@ public class UserDetails {
     private int userId;
     private String userName;
 
-    @OneToMany
-    @JoinTable(name = "USER_VEHICLE",joinColumns = @JoinColumn(name = "USER_ID"),
-            inverseJoinColumns = @JoinColumn(name = "VEHICLE_ID")
-    )
+    @OneToMany(mappedBy = "userDetails", cascade = CascadeType.ALL, orphanRemoval = true)
     private Collection<Vehicle> vehicle = new ArrayList<>();
 
     public UserDetails(String userName) {
