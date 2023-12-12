@@ -17,7 +17,7 @@ public class Vehicle {
     private String vehicleName;
     @ManyToOne
     @JoinColumn(name = "USER_ID")
-    private UserDetails userDetails;
+    private UserDetails user;
 
     public Vehicle(String vehicleName) {
 

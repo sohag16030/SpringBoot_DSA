@@ -23,7 +23,7 @@ public class UserDetails {
     private int userId;
     private String userName;
 
-    @OneToMany(mappedBy = "userDetails", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user")
     private Collection<Vehicle> vehicle = new ArrayList<>();
 
     public UserDetails(String userName) {
