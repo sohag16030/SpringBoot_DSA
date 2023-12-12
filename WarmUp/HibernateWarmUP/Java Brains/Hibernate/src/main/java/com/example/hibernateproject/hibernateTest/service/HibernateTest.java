@@ -24,6 +24,8 @@ public class HibernateTest {
         Vehicle vehicle2 = new Vehicle("Bike");
         user.getVehicle().add(vehicle);
         user.getVehicle().add(vehicle2);
+        vehicle.setUserDetails(user);
+        vehicle2.setUserDetails(user);
 
         //data save using hibernate API
         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();

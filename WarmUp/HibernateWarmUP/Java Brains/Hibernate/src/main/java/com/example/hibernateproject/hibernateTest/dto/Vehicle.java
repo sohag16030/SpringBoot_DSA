@@ -1,9 +1,6 @@
 package com.example.hibernateproject.hibernateTest.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,8 +15,11 @@ public class Vehicle {
     @GeneratedValue
     private int vehicleId;
     private String vehicleName;
+    @ManyToOne
+    private UserDetails userDetails;
 
     public Vehicle(String vehicleName) {
+
         this.vehicleName = vehicleName;
     }
 }
