@@ -20,6 +20,7 @@ public class Vehicle {
     private String vehicleName;
 
     @ManyToOne
+    @JoinColumn(name = "userId")
     private UserDetails userDetails;
 
     public Vehicle(String vehicleName) {
