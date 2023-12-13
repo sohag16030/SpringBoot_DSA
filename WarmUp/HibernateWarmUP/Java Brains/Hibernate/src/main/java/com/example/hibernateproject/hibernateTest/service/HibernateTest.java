@@ -25,9 +25,6 @@ public class HibernateTest {
         user2.getVehiclesList().add(vehicle);
         user.getVehiclesList().add(vehicle2);
 
-        vehicle.getUsersList().add(user);
-        vehicle.getUsersList().add(user2);
-        vehicle2.getUsersList().add(user);
 
         //data save using hibernate API
         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
