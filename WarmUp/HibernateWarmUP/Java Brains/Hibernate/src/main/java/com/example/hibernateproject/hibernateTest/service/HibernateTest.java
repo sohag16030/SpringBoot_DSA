@@ -22,7 +22,6 @@ public class HibernateTest {
         Vehicle vehicle2 = new Vehicle("Bike");
 
         user.getVehiclesList().add(vehicle);
-        user2.getVehiclesList().add(vehicle);
         user.getVehiclesList().add(vehicle2);
 
 
@@ -31,11 +30,10 @@ public class HibernateTest {
         Session session = factory.openSession();
         session.beginTransaction();
 
-        session.save(user);
-        session.save(user2);
+        session.persist(user);
 
-        session.save(vehicle);
-        session.save(vehicle2);
+//        session.save(vehicle);
+//        session.save(vehicle2);
 
         session.getTransaction().commit();
 

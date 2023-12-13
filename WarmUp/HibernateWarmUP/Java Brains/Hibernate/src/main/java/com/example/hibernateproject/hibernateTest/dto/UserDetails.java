@@ -23,7 +23,7 @@ public class UserDetails {
     private int userId;
     private String userName;
 
-    @ManyToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private Collection<Vehicle> vehiclesList = new ArrayList<>();
 
     public UserDetails(String userName) {
