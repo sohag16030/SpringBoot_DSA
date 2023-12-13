@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Collection;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,9 +17,9 @@ public class Vehicle {
     @GeneratedValue
     private int vehicleId;
     private String vehicleName;
-    @ManyToOne
-    @JoinColumn(name = "USER_ID")
-    private UserDetails user;
+
+    @ManyToMany
+    private Collection<UserDetails> users;
 
     public Vehicle(String vehicleName) {
 

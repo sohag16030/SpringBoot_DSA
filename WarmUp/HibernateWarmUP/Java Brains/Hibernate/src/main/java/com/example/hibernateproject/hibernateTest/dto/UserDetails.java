@@ -23,7 +23,7 @@ public class UserDetails {
     private int userId;
     private String userName;
 
-    @OneToMany(mappedBy = "user")
+    @ManyToMany()
     private Collection<Vehicle> vehicle = new ArrayList<>();
 
     public UserDetails(String userName) {
