@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Data
@@ -18,11 +19,10 @@ public class Vehicle {
     private int vehicleId;
     private String vehicleName;
 
-    @ManyToMany
-    private Collection<UserDetails> users;
+    @ManyToMany(mappedBy = "vehiclesList")
+    private Collection<UserDetails> usersList = new ArrayList<>();
 
     public Vehicle(String vehicleName) {
-
         this.vehicleName = vehicleName;
     }
 }

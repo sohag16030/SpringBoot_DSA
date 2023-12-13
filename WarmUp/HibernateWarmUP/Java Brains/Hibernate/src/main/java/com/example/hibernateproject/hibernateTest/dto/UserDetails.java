@@ -23,8 +23,8 @@ public class UserDetails {
     private int userId;
     private String userName;
 
-    @ManyToMany()
-    private Collection<Vehicle> vehicle = new ArrayList<>();
+    @ManyToMany
+    private Collection<Vehicle> vehiclesList = new ArrayList<>();
 
     public UserDetails(String userName) {
         this.userName = userName;

@@ -8,9 +8,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 public class HibernateTest {
     @Override
@@ -20,12 +17,17 @@ public class HibernateTest {
 
     public static void main(String[] args) {
         UserDetails user = new UserDetails("Mike");
+        UserDetails user2 = new UserDetails("John");
         Vehicle vehicle = new Vehicle("Car");
         Vehicle vehicle2 = new Vehicle("Bike");
-        user.getVehicle().add(vehicle);
-        user.getVehicle().add(vehicle2);
-        vehicle.setUser(user);
-        vehicle2.setUser(user);
+
+        user.getVehiclesList().add(vehicle);
+        user2.getVehiclesList().add(vehicle);
+        user.getVehiclesList().add(vehicle2);
+
+        vehicle.getUsersList().add(user);
+        vehicle.getUsersList().add(user2);
+        vehicle2.getUsersList().add(user);
 
         //data save using hibernate API
         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
@@ -33,9 +35,11 @@ public class HibernateTest {
         session.beginTransaction();
 
         session.save(user);
+        session.save(user2);
 
         session.save(vehicle);
         session.save(vehicle2);
+
         session.getTransaction().commit();
 
         //data save using hibernate API
