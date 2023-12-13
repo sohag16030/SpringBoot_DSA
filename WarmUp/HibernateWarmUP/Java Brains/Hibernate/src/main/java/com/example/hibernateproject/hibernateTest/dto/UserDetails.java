@@ -23,7 +23,7 @@ public class UserDetails {
     private int userId;
     private String userName;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "userDetails",cascade = CascadeType.ALL)
     private Collection<Vehicle> vehiclesList = new ArrayList<>();
 
     public UserDetails(String userName) {

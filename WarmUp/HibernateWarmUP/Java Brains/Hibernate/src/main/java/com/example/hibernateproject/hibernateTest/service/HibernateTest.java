@@ -34,9 +34,6 @@ public class HibernateTest {
 
         session.persist(user);
 
-//        session.save(vehicle);
-//        session.save(vehicle2);
-
         session.getTransaction().commit();
 
         //data save using hibernate API
