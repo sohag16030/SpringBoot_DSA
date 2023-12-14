@@ -12,12 +12,7 @@ import java.util.Collection;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(
-        name = "VEHICLE_TYPE",
-        discriminatorType = DiscriminatorType.STRING
-)
-@Table(name = "VEHICLE_DETAILS")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Vehicle {
     @Id
     @GeneratedValue

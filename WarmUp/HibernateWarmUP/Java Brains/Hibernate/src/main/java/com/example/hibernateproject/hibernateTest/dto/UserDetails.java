@@ -16,7 +16,6 @@ import org.hibernate.annotations.Type;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "USER_DETAILS")
 public class UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
