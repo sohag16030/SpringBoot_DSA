@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@DiscriminatorValue("Car")
 public class FourWheeler extends Vehicle{
     private String steeringWheel;
 }
