@@ -27,6 +27,7 @@ public class HibernateTest {
         user.setUserName("Updated User 2");
 
         session.getTransaction().commit();
-        session.close();//detached object // hibernate not tacked ..................
+        session.close();
+        user.setUserName("User Name updated after closing session"); //detached object // hibernate not tacked ..................
     }
 }
