@@ -19,6 +19,8 @@
                 <mapping class="com.example.hibernateproject.hibernateTest.dto.UserDetails"/>
                 <mapping class="com.example.hibernateproject.hibernateTest.dto.Address"/>
                 <mapping class="com.example.hibernateproject.hibernateTest.dto.Vehicle"/>
+                <mapping class="com.example.hibernateproject.hibernateTest.dto.TwoWheeler"/>
+                <mapping class="com.example.hibernateproject.hibernateTest.dto.FourWheeler"/>
     </session-factory>
 
 </hibernate-configuration>

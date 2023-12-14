@@ -19,10 +19,6 @@ public class Vehicle {
     private int vehicleId;
     private String vehicleName;
 
-    @ManyToOne
-    @JoinColumn(name = "userId")
-    private UserDetails userDetails;
-
     public Vehicle(String vehicleName) {
         this.vehicleName = vehicleName;
     }

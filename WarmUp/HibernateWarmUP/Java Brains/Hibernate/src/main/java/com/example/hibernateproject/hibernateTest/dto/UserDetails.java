@@ -23,9 +23,6 @@ public class UserDetails {
     private int userId;
     private String userName;
 
-    @OneToMany(mappedBy = "userDetails",cascade = CascadeType.ALL)
-    private Collection<Vehicle> vehiclesList = new ArrayList<>();
-
     public UserDetails(String userName) {
         this.userName = userName;
     }
