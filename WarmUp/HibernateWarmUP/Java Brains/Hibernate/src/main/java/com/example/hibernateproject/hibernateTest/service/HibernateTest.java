@@ -15,18 +15,18 @@ public class HibernateTest {
     }
 
     public static void main(String[] args) {
-        UserDetails user = new UserDetails("Test"); //transient object
+        UserDetails user = new UserDetails("Test"); //transient object // hibernate not looked at this object
 
         //data save using hibernate API
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
         session.beginTransaction();
 
-        session.save(user); // persistent object
+        session.save(user); // persistent object // tracked by hibernate..........
         user.setUserName("Updated User");
         user.setUserName("Updated User 2");
 
         session.getTransaction().commit();
-        session.close();
+        session.close();//detached object // hibernate not tacked ..................
     }
 }
