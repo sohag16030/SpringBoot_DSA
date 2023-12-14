@@ -1,6 +1,7 @@
 package com.example.hibernateproject.hibernateTest.service;
 
 import com.example.hibernateproject.hibernateTest.dto.*;
+import org.apache.catalina.User;
 import org.hibernate.LazyInitializationException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -14,42 +15,24 @@ public class HibernateTest {
     }
 
     public static void main(String[] args) {
-        UserDetails user = new UserDetails("Mike");
-        Vehicle car = new Vehicle("Car");
-//        Vehicle vehicle2 = new Vehicle("Bike");
 
-//        user.getVehiclesList().add(vehicle);
-//        user.getVehiclesList().add(vehicle2);
-//
-//        vehicle.setUserDetails(user);  // Set the association
-//        vehicle2.setUserDetails(user); // Set the association
-
-        TwoWheeler bike = new TwoWheeler();
-        bike.setVehicleName("Bike");
-        bike.setSteeringHandle("Bike Steering Handle");
-
-        FourWheeler bmw = new FourWheeler();
-        bmw.setVehicleName("BMW");
-        bmw.setSteeringWheel("BMW Steering Wheel");
 
         //data save using hibernate API
         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
         Session session = factory.openSession();
         session.beginTransaction();
+//        for (int i = 0; i < 10; i++) {
+//            UserDetails user = new UserDetails("User " + i);
+//            session.save(user);
+//        }
 
-        session.save(user);
-        session.save(car);
-        session.save(bike);
-        session.save(bmw);
-
+        UserDetails user =  session.get(UserDetails.class,5);
+        user.setUserName("Updated User 5");
+        session.update(user);
+        //session.delete(user);
+        System.out.println(user);
         session.getTransaction().commit();
-
-        //data save using hibernate API
-//        UserDetails user = null;
-//        session = factory.openSession();
-//        session.beginTransaction();
-//        user = session.get(UserDetails.class, 1);
-//        System.out.println(user);
-//        session.close();
+        session.close();
+        //System.out.println(user);
     }
 }
