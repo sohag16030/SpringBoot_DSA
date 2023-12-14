@@ -15,24 +15,18 @@ public class HibernateTest {
     }
 
     public static void main(String[] args) {
-
+        UserDetails user = new UserDetails("Test"); //transient object
 
         //data save using hibernate API
-        SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+        SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
         session.beginTransaction();
-//        for (int i = 0; i < 10; i++) {
-//            UserDetails user = new UserDetails("User " + i);
-//            session.save(user);
-//        }
 
-        UserDetails user =  session.get(UserDetails.class,5);
-        user.setUserName("Updated User 5");
-        session.update(user);
-        //session.delete(user);
-        System.out.println(user);
+        session.save(user); // persistent object
+        user.setUserName("Updated User");
+        user.setUserName("Updated User 2");
+
         session.getTransaction().commit();
         session.close();
-        //System.out.println(user);
     }
 }
