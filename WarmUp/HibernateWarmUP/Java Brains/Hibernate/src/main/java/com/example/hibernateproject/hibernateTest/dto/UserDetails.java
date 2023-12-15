@@ -16,6 +16,7 @@ import org.hibernate.annotations.Type;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@DynamicUpdate
 public class UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

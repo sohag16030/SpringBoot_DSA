@@ -15,7 +15,7 @@
         <!-- Echo all executed statements to stdout -->
         <property name="hibernate.show_sql">true</property>
         <!-- Drop and re-create the database schema on startup -->
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
                 <mapping class="com.example.hibernateproject.hibernateTest.dto.UserDetails"/>
                 <mapping class="com.example.hibernateproject.hibernateTest.dto.Address"/>
                 <mapping class="com.example.hibernateproject.hibernateTest.dto.Vehicle"/>

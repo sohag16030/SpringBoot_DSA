@@ -15,19 +15,25 @@ public class HibernateTest {
     }
 
     public static void main(String[] args) {
-        UserDetails user = new UserDetails("Test"); //transient object // hibernate not looked at this object
+        //UserDetails user = new UserDetails("User 1"); //transient object // hibernate not looked at this object
 
         //data save using hibernate API
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
-        Session session = factory.openSession();
+        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        Session session = sessionFactory.openSession();
         session.beginTransaction();
+        //session.save(user);
 
-        session.save(user); // persistent object // tracked by hibernate..........
-        user.setUserName("Updated User");
-        user.setUserName("Updated User 2");
+        UserDetails user = session.get(UserDetails.class, 1);
+        session.getTransaction().commit();
+        session.close();
+
+        user.setUserName("username changed");
+        
+        session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.update(user);
 
         session.getTransaction().commit();
         session.close();
-        user.setUserName("User Name updated after closing session"); //detached object // hibernate not tacked ..................
     }
 }
