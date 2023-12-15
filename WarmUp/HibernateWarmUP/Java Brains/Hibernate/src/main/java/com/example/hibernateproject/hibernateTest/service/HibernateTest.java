@@ -28,7 +28,7 @@ public class HibernateTest {
         session.close();
 
         user.setUserName("username changed");
-        
+
         session = sessionFactory.openSession();
         session.beginTransaction();
         session.update(user);
