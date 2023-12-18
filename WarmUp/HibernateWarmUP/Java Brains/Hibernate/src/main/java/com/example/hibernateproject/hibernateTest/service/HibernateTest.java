@@ -24,7 +24,7 @@ public class HibernateTest {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        Query query = session.createQuery("from UserDetails");
+        Query query = session.createQuery("from UserDetails where userId=1");
 
         List users = query.list();
         session.getTransaction().commit();
