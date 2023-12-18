@@ -6,6 +6,9 @@ import org.hibernate.LazyInitializationException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
+import java.util.List;
 
 
 public class HibernateTest {
@@ -21,19 +24,11 @@ public class HibernateTest {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        //session.save(user);
+        Query query = session.createQuery("from UserDetails");
 
-        UserDetails user = session.get(UserDetails.class, 1);
+        List users = query.list();
         session.getTransaction().commit();
         session.close();
-
-        user.setUserName("username changed");
-
-        session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.update(user);
-
-        session.getTransaction().commit();
-        session.close();
+        System.out.println("Size of the list result:" + users.size());
     }
 }
