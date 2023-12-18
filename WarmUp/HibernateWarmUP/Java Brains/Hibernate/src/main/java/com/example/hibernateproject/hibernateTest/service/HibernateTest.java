@@ -24,11 +24,17 @@ public class HibernateTest {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        Query query = session.createQuery("from UserDetails where userId=1");
+//        for(int i=1;i<=10;i++)
+//        {
+//            UserDetails user = new UserDetails("User : "+ i);
+//            session.save(user);
+//        }
 
-        List users = query.list();
+        Query query = session.createQuery("from UserDetails");
+        List<UserDetails> users = query.list();
         session.getTransaction().commit();
         session.close();
-        System.out.println("Size of the list result:" + users.size());
+        for (UserDetails user : users)
+            System.out.println(user);
     }
 }
