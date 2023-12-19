@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @NamedQuery(name = "userDetails.byId", query = "from UserDetails where userId = :userId")
+@NamedNativeQuery(name="userDetails.byName", query = "select * from User_Details where userName = :userName")
 @Table(name = "User_Details")
 public class UserDetails {
     @Id

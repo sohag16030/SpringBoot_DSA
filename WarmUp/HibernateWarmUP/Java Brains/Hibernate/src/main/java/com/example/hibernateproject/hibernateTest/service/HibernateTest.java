@@ -6,6 +6,7 @@ import org.hibernate.LazyInitializationException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
 import java.util.ArrayList;
@@ -26,18 +27,21 @@ public class HibernateTest {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         session.beginTransaction();
+//        for(int i=1;i<=10;i++)
+//        {
+//            UserDetails user = new UserDetails("User : "+ i);
+//            session.save(user);
+//        }
+        String userName = "User : 9";
 
-        String userId = "5";//sql injection
-        String name = "User : 9";
+        Query query = session.getNamedNativeQuery("userDetails.byName");
+        query.setParameter("userName", userName);
+        ((NativeQuery<?>) query).addEntity(UserDetails.class);
 
-        Query query = session.getNamedQuery("userDetails.byId");
-        query.setParameter("userId", Integer.parseInt(userId));
+        UserDetails result = (UserDetails) query.uniqueResult();
 
-        List<UserDetails> result = query.list();
+        System.out.println(result);
 
-        for (UserDetails user : result) {
-            System.out.println(user);
-        }
 
         session.getTransaction().commit();
         session.close();
