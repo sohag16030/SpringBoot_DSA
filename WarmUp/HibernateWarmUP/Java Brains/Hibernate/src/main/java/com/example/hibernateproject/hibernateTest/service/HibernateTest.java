@@ -8,7 +8,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class HibernateTest {
@@ -30,11 +33,20 @@ public class HibernateTest {
 //            session.save(user);
 //        }
 
-        Query query = session.createQuery("from UserDetails");
-        List<UserDetails> users = query.list();
+        Query query = session.createQuery("select new map(userId,userName) from UserDetails");
+//        query.setFirstResult(5);//starting the point nth point
+//        query.setMaxResults(2); // maximum result for this query
+        List<Map<String, Object>> userDetailsList = query.list();
+
+        for (Map<String, Object> userDetailsMap : userDetailsList) {
+            Integer userId = (Integer) userDetailsMap.get("0");
+            String userName = (String) userDetailsMap.get("1");
+            System.out.println(userId + " " + userName);
+            // Process the userId and userName as needed
+        }
         session.getTransaction().commit();
         session.close();
-        for (UserDetails user : users)
-            System.out.println(user);
+//        for (String username : usersname)
+//            System.out.println(username);
     }
 }
