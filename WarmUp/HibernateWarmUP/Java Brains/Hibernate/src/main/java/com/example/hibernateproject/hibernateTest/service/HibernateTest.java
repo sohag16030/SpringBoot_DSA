@@ -33,18 +33,19 @@ public class HibernateTest {
 //            session.save(user);
 //        }
 
-        Query query = session.createQuery("select MAX(u.userId) from UserDetails u");
+        String minUserId = "5";//sql injection
+        String name = "User : 9";
 
-        Object result = query.uniqueResult();
-        if (result != null) {
-            Integer maxUserId = (Integer) result;
-            System.out.println("Maximum userId: " + maxUserId);
-        } else {
-            System.out.println("No records in UserDetails");
+        Query query = session.createQuery("from UserDetails where userId > :minUserId and userName = :name");
+        query.setParameter("minUserId", Integer.parseInt(minUserId));
+        query.setParameter("name", name);
+        List<UserDetails> result = query.list();
+
+        for (UserDetails user : result) {
+            System.out.println(user);
         }
 
         session.getTransaction().commit();
         session.close();
-
     }
 }
