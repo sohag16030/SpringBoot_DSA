@@ -21,24 +21,18 @@ public class HibernateTest {
     }
 
     public static void main(String[] args) {
-        //UserDetails user = new UserDetails("User 1"); //transient object // hibernate not looked at this object
 
         //data save using hibernate API
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-//        for(int i=1;i<=10;i++)
-//        {
-//            UserDetails user = new UserDetails("User : "+ i);
-//            session.save(user);
-//        }
 
-        String minUserId = "5";//sql injection
+        String userId = "5";//sql injection
         String name = "User : 9";
 
-        Query query = session.createQuery("from UserDetails where userId > :minUserId and userName = :name");
-        query.setParameter("minUserId", Integer.parseInt(minUserId));
-        query.setParameter("name", name);
+        Query query = session.getNamedQuery("userDetails.byId");
+        query.setParameter("userId", Integer.parseInt(userId));
+
         List<UserDetails> result = query.list();
 
         for (UserDetails user : result) {
