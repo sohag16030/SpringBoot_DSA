@@ -33,20 +33,18 @@ public class HibernateTest {
 //            session.save(user);
 //        }
 
-        Query query = session.createQuery("select new map(userId,userName) from UserDetails");
-//        query.setFirstResult(5);//starting the point nth point
-//        query.setMaxResults(2); // maximum result for this query
-        List<Map<String, Object>> userDetailsList = query.list();
+        Query query = session.createQuery("select MAX(u.userId) from UserDetails u");
 
-        for (Map<String, Object> userDetailsMap : userDetailsList) {
-            Integer userId = (Integer) userDetailsMap.get("0");
-            String userName = (String) userDetailsMap.get("1");
-            System.out.println(userId + " " + userName);
-            // Process the userId and userName as needed
+        Object result = query.uniqueResult();
+        if (result != null) {
+            Integer maxUserId = (Integer) result;
+            System.out.println("Maximum userId: " + maxUserId);
+        } else {
+            System.out.println("No records in UserDetails");
         }
+
         session.getTransaction().commit();
         session.close();
-//        for (String username : usersname)
-//            System.out.println(username);
+
     }
 }
