@@ -1,6 +1,9 @@
 package com.example.hibernateproject.hibernateTest.service;
 
 import com.example.hibernateproject.hibernateTest.dto.*;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 import org.apache.catalina.User;
 import org.hibernate.LazyInitializationException;
 import org.hibernate.Session;
@@ -34,13 +37,15 @@ public class HibernateTest {
 //        }
         String userName = "User : 9";
 
-        Query query = session.getNamedNativeQuery("userDetails.byName");
-        query.setParameter("userName", userName);
-        ((NativeQuery<?>) query).addEntity(UserDetails.class);
+        CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+        CriteriaQuery<UserDetails> criteriaQuery = criteriaBuilder.createQuery(UserDetails.class);
 
-        UserDetails result = (UserDetails) query.uniqueResult();
+       Root<UserDetails> root = criteriaQuery.from(UserDetails.class);
+       // criteriaQuery.select(root).where(criteriaBuilder.equal(root.get("username"), username));
 
-        System.out.println(result);
+        List<UserDetails> users = session.createQuery(criteriaQuery).getResultList();
+
+        System.out.println(users);
 
 
         session.getTransaction().commit();
