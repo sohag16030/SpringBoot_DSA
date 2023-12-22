@@ -21,6 +21,7 @@
                 <mapping class="com.example.hibernateproject.hibernateTest.dto.Vehicle"/>
                 <mapping class="com.example.hibernateproject.hibernateTest.dto.TwoWheeler"/>
                 <mapping class="com.example.hibernateproject.hibernateTest.dto.FourWheeler"/>
+                <mapping class="com.example.hibernateproject.JPA.DTO.Product"/>
     </session-factory>
 
 </hibernate-configuration>
