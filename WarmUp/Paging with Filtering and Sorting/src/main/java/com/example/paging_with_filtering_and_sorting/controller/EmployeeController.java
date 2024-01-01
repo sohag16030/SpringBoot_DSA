@@ -1,5 +1,7 @@
 package com.example.paging_with_filtering_and_sorting.controller;
 
+import com.example.paging_with_filtering_and_sorting.dto.EmployeePage;
+import com.example.paging_with_filtering_and_sorting.dto.EmployeeSearchCriteria;
 import com.example.paging_with_filtering_and_sorting.entities.Employee;
 import com.example.paging_with_filtering_and_sorting.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
@@ -17,12 +19,7 @@ public class EmployeeController {
     private final EmployeeService employeeService;
 
     @GetMapping("/getAll")
-    public Page<Employee> getAllEmployees(@RequestParam(required = false) String firstName,
-                                          @RequestParam(required = false) String lastName,
-                                          @RequestParam(defaultValue = "0") int pageNumber,
-                                          @RequestParam(defaultValue = "10") int pageSize,
-                                          @RequestParam(defaultValue = "ASC") String sortDirection,
-                                          @RequestParam(defaultValue = "firstName") String sortBy) {
-        return employeeService.getAllEmployees(firstName, lastName, pageNumber, pageSize, sortDirection, sortBy);
+    public Page<Employee> getAllEmployees(EmployeePage employeePage, EmployeeSearchCriteria employeeSearchCriteria) {
+        return employeeService.getAllEmployees(employeePage,employeeSearchCriteria);
     }
 }
